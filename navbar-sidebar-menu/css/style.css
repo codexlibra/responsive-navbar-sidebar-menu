@@ -1,0 +1,508 @@
+:root {
+	--color-navbar-font: #ffff;
+	--color-blue: #0d6efd;
+	--color-purple: #9c0dfd;
+	--color-pink: #fd0de6;
+	--color-red: #fd0d6e;
+	--color-blue-tints-n3: #4a92fe;
+	--color-purple-tints-n3: #b54afe;
+	--color-pink-tints-n3: #fe4aec;
+	--navbar-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
+	--sidebar-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.15);
+	--color-body: #f4f4f4;
+}
+
+body {
+	margin: 0;
+	background-color: var(--color-body);
+}
+
+/* screen <= 575px (XS) */
+@media (max-width: 576px) {
+	.navbar {
+		height: 65px;
+		background: var(--color-blue);
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		user-select: none;
+		box-shadow: var(--navbar-box-shadow);
+	}
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between
+	}
+	.navbar-brand {
+		padding: 1.40em;
+		color: var(--color-navbar-font);
+		text-decoration: none;
+		font-weight: bold;
+		/*border: 1px solid green;*/
+	}
+	.navbar-logo {
+		display: flex;
+		height: 63px;
+		width: auto;
+		padding-right: 1.40em;
+	}
+	.sidebar-logo {
+		display: flex;
+		height: 63px;
+		width: auto;
+		margin-left: 1.40em;
+	}
+	.toggler-icon {
+		color: var(--color-navbar-font);
+		font-size: 24px;
+		margin-left: 1.40em;
+		margin-right: 1.40em;
+		/*border: 1px solid red;*/
+	}
+	.navbar-list {
+		margin: 0px;
+		width: 100%;
+		height: 100vh; /* ocupa todo el ancho disponible */
+		overflow-y: auto; /* solo cuando se desborda muestra el scroll */
+		padding-top: 0px;
+		padding-left: 0px;
+		background: var(--color-blue);
+		list-style: none;
+		left: -100%; /* coloca el submenu a la izquierda para mostrarlo con efecto hacia la derecha */
+		transition: all 0.5s ease;
+		position: fixed;
+		top: 0px;
+		overflow: -moz-scrollbars-none; /* hide scrollbar (Firefox) */
+		/*-ms-overflow-style: none; /* hide scrollbar (Internet Explorer) */
+		/*border: 1px solid red;*/
+	}
+	/* muestra el sidebar cuando tiene la clase toggle */
+	.navbar-list.toggle {
+		left: 0px;
+	}
+	.sidebar-header {
+		height: 65px;
+		background-color: var(--color-blue);
+		display: flex;
+		justify-content: space-between; /* separa el sidebar brand y el icono x */
+		align-items: center; /* alinea los iconos al centro verticalmente */
+	}
+	.sidebar-brand {
+		padding: 1.40em;
+		color: var(--color-navbar-font);
+		text-decoration: none;
+		font-weight: bold;
+		/*border: 1px solid green;*/
+	}
+	.navbar-link {
+		display: flex;
+		align-items: center; /* mantiene alineado verticalmt el item con respecto al icono*/
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+		/*border: 1px solid green;*/
+	}
+	.navbar-link.active {
+		background-color: var(--color-red);
+	}
+	.navbar-icon {
+		font-size: 24px;
+		margin-right: 12px;
+	}
+	/* Start sidebar link dropdown */
+	.navbar-link-dropdown {
+		display: flex;
+		justify-content: space-between; /* mantiene el icono y el link de un lado y la flesha del otro lado */
+		align-items: center; /* alinea verticalmt respecto al icono */
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+
+	}
+	.navbar-link-dropdown .group-dropdown {
+		display: flex;
+		align-items: center; /* alinea vertical link respecto al icono */
+	}
+	/* rota el icono cuando tiene la clase toggle */
+	.navbar-item-dropdown.toggle .dropdown-menu-arrow {
+		transform: rotate(180deg);
+	}
+	/*muestra el dropdown menu cuando cuenta con la clase toggle*/
+	.navbar-item-dropdown.toggle .dropdown-menu {
+		display: block;
+	}
+
+	.group-dropdown .navbar-icon {
+		font-size: 24px;
+		margin-right: 12px;
+	}
+	/* Start dropdown menu */
+	.dropdown-menu {
+		display: none; /* solo lo muestra cuando el link dropdown cuenta con la clase toggle*/
+		list-style: none;
+		padding-left: 0px;
+		background: var(--color-purple);
+		/*transition: all 0.5s ease;*/
+		/*border: 1px solid green;*/
+	}
+
+	.dropdown-link-submenu {
+		display: flex;
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+	}
+	/* Start dropdown submenu */
+	.dropdown-submenu {
+		display: none;
+		list-style: none;
+		padding-left: 0px;
+		background: var(--color-pink);
+		/*border: 1px solid green;*/
+	}
+
+	/* rota el icono cuando tiene la clase toggle */
+	.navbar-item-dropdown.submenu-toggle .dropdown-submenu-arrow {
+		transform: rotate(180deg);
+	}
+	/*muestra el dropdown submenu cuando tiene la clase toggle*/
+	.navbar-item-dropdown.submenu-toggle .dropdown-submenu {
+		display: block;
+	}
+	/* hide scrollbar (Chrome, Safari, newer versions of Opera) */
+	.navbar-list::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* screen >= 576px (SM) and < 992px (LG) */
+@media (min-width: 576px) and (max-width: 992px) {
+	.bx.bx-x {
+		display: none; /*oculta el icono x puesto que en esta resolucion no es nesesario*/
+	}
+	.navbar {
+		height: 65px;
+		background: var(--color-blue);
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		user-select: none;
+		box-shadow: var(--navbar-box-shadow);
+	}
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between
+	}
+	.navbar-brand {
+		padding: 1.40em;
+		color: var(--color-navbar-font);
+		text-decoration: none;
+		font-weight: bold;
+		/*border: 1px solid blue;*/
+	}
+	.navbar-logo {
+		display: flex;
+		height: 63px;
+		width: auto;
+		padding-right: 1.40em;
+	}
+	.sidebar-logo {
+		display: flex;
+		height: 63px;
+		width: auto;
+		margin-left: 1.40em;
+	}
+	.toggler-icon {
+		color: var(--color-navbar-font);
+		font-size: 24px;
+		margin-left: 1.40em;
+		margin-right: 1.40em;
+	}
+	.navbar-list {
+		margin: 0px;
+		width: 260px;
+		height: 100vh;
+		overflow-y: auto;
+		padding-top: 0px;
+		padding-left: 0px;
+		background: var(--color-blue);
+		list-style: none;
+		left: -100%;
+		transition: all 0.5s ease;
+		position: fixed;
+		top: 0px;
+		overflow: -moz-scrollbars-none;
+		box-shadow: var(--sidebar-box-shadow);
+	}
+
+	/* muestra el sidebar */
+	.navbar-list.toggle {
+		left: 0px;
+	}
+	.sidebar-header {
+		height: 65px;
+		background-color: var(--color-blue);
+		display: flex;
+		justify-content: center; /* coloca el brand en el centro del sidebar */
+		align-items: center;
+	}
+	.sidebar-brand {
+		padding: 1.40em;
+		color: var(--color-navbar-font);
+		text-decoration: none;
+		font-weight: bold;
+		/*border: 1px solid green;*/
+	}
+	.navbar-link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+	}
+	.navbar-link.active {
+		background-color: var(--color-red);
+	}
+	.navbar-icon {
+		font-size: 24px;
+		margin-right: 12px;
+	}
+
+	/* Start sidebar link dropdown */
+	.navbar-link-dropdown {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+	}
+	.navbar-link-dropdown .group-dropdown {
+		display: flex;
+		align-items: center;
+	}
+	.navbar-item-dropdown.toggle .dropdown-menu-arrow {
+		transform: rotate(180deg);
+	}
+	.navbar-item-dropdown.toggle .dropdown-menu {
+		display: block;
+	}
+	.group-dropdown .navbar-icon {
+		font-size: 24px;
+		margin-right: 12px;
+	}
+
+
+	/* Start dropdown menu */
+	.dropdown-menu {
+		display: none;
+		list-style: none;
+		padding-left: 0px;
+		background: var(--color-purple);
+	}
+	.dropdown-link-submenu {
+		display: flex;
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+	}
+
+	/* Start dropdown submenu */
+	.dropdown-submenu {
+		display: none;
+		list-style: none;
+		padding-left: 0px;
+		background: var(--color-pink);
+	}
+	.navbar-item-dropdown.submenu-toggle .dropdown-submenu-arrow {
+		transform: rotate(180deg);
+	}
+	.navbar-item-dropdown.submenu-toggle .dropdown-submenu {
+		display: block;
+	}
+	.navbar-list::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Overlay */
+	.overlay {
+		position: fixed;
+		top: 0px;
+		/*left: 260px;*/
+		left: calc(-100% + 260px); /*muestra el overlay de izq a der junto con el sidebar*/
+		height: 100vh;
+		width: 100%;
+		opacity: 0; /* comienza mostrando el overlay sin opacidad */
+		pointer-events: none; /* permite seleccionar elementos debajo del overlay */
+		transition: all 0.5s ease;
+		background-color: rgba(0,0,0,0.3);
+	}
+	.navbar-list.toggle .overlay {
+		opacity: 1;
+		pointer-events: auto; /* no permite seleccionar elementos debajo del overlay */
+		left: 260px;
+	}
+}
+
+/* screen >= 992px (LG) */
+@media (min-width: 992px) {
+	.container {
+		max-width: 1366px;
+	}
+	.sidebar-header {
+		display: none; /*oculta el icono x y el sidebar brand puesto que en esta resolucion no es nesesario*/
+	}
+	.bx-menu.toggler-icon {
+		display: none;
+	}
+
+	.navbar {
+		height: 65px;
+		width: auto;
+		display: flex; /* coloca los elementos flexibles */
+		flex-direction: row; /* coloca todos los elementos en horizontal */
+		flex-wrap: nowrap; /* coloca todos los elementos hijos en horizontal */
+		justify-content: space-between; /* crea un espacio entre los elementos */
+		align-items: center; /* coloca los elemetos en el centro de top y bottom */
+		background: var(--color-blue);
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		user-select: none; /* no permite seleccionar el texto del navbar*/
+		box-shadow: var(--navbar-box-shadow);
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+		margin-right: auto; /* mantiene los elementos en el centro de la pantalla*/
+		margin-left: auto;
+		/*border: 1px solid #00ff15;*/
+	}
+
+	.navbar-brand {
+		padding: 1.40em;
+		color: var(--color-navbar-font);
+		text-decoration: none;
+		font-weight: bold;
+		/*border: 1px solid red;*/
+	}
+	.brand-icon {
+		display: flex;
+		/*padding: 1.40em;*/
+		height: 63px;
+		width: auto;
+		/*border: 1px solid rgb(157, 175, 0);*/
+	}
+	.navbar-list {
+		list-style: none; /* quita las viñetas */
+		padding-left: 0; /* quita el espacio por defecto */
+		display: flex;
+		flex-wrap: wrap; /* cuando se llene la fila posiciona los elementos en otra fila */
+		/*border: 1px solid rgb(234, 247, 63);*/
+	}
+	.navbar-link {
+		display: block; /* permite colocar dropdown fuera del link */
+		text-decoration: none;
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+		/*border: 1px solid rgb(175, 0, 137);*/
+	}
+	.navbar-link.active {
+		background-color: var(--color-red);	
+	}
+	
+	/* mantiene el hover padre cuando esta posicionado en el hijo */
+	.navbar-item:hover {
+		background-color: var(--color-blue-tints-n3);
+	}
+
+	/* **** Sidebar item dropdown **** */
+	.navbar-item-dropdown {
+		display: flex;
+		align-items: center; /* coloca el icono, texto y flecha en el centro del item */
+	}
+	.navbar-link-dropdown {
+		display: flex;
+		align-items: center; /* alinea verticlmt la flesha con el texto y el icono */
+		color: var(--color-navbar-font);
+		padding: 1.45em;
+		/*border: 1px solid rgb(234, 247, 63);*/
+	}
+	.dropdown-menu-arrow {
+		margin-left: 10px;
+	}
+
+	.navbar-item-dropdown:hover {
+		background-color: var(--color-blue-tints-n3);
+	}
+
+	.navbar-item-dropdown:hover .dropdown-menu {
+		display: block; /* muestra el dropdown menu al posicionarse en navbar item*/
+	}
+
+	/* Start dropdown menu */
+	.dropdown-menu {
+		width: 200px;
+		position: absolute; /* coloca el dropdown independiente del padding padre  */
+		list-style: none; /* quita las viñetas */
+		padding-left: 0; /* quita el espacio por defecto */
+		background-color: var(--color-purple);
+		display: none; /* oculta el dropdown al inicio */
+		top: 65px;
+		box-shadow: var(--navbar-box-shadow);
+		/*border: 1px solid rgb(234, 247, 63);*/
+	}
+	.dropdown-menu .navbar-item:hover,
+	.dropdown-menu .navbar-item-dropdown:hover {
+		background-color: var(--color-purple-tints-n3);
+	}
+	.dropdown-submenu-arrow {
+		/*margin-left: 10px;*/
+		transform: rotate(270deg); /*la flesha apunta a la derecha*/
+	}
+
+	/* sidebar item dropdown */
+	.navbar-item-dropdown {
+		position: relative; /* mantiene unido al  */
+	}
+
+	.dropdown-menu .navbar-item-dropdown:hover .dropdown-submenu,
+	.dropdown-menu .navbar-item-dropdown:hover .dropdown-submenu-left {
+		display: block;
+	}
+
+	/* Start dropdown submenu */
+
+	.dropdown-submenu {
+		position: absolute; /* coloca el dropdown independiente del padding padre */
+		width: 200px;
+		display: none;
+		list-style: none; /* quita las viñetas */
+		padding-left: 0; /* quita el espacio por defecto */
+		left: 200px; /* coloca el submenu a la derecha */
+		top: 0px; /* el submenu se posiciona a la misma altura del sidebar item dropdown correspondinte */
+		background-color: var(--color-pink);
+		box-shadow: var(--navbar-box-shadow);
+		/*border: 1px solid rgb(234, 247, 63);*/
+	}
+	.dropdown-submenu-left {
+		position: absolute; /* coloca el dropdown independiente del padding padre */
+		width: 200px;
+		display: none;
+		list-style: none; /* quita las viñetas */
+		padding-left: 0; /* quita el espacio por defecto */
+		left: -200px; /* coloca el submenu a la derecha */
+		top: 0px; /* el submenu se posiciona a la misma altura del sidebar item dropdown correspondinte */
+		background-color: var(--color-pink);
+		/*border: 1px solid rgb(234, 247, 63);*/
+	}
+	.dropdown-submenu .navbar-item:hover,
+	.dropdown-submenu-left .navbar-item:hover {
+		background-color: var(--color-pink-tints-n3);
+	}
+
+	/*@media (min-width: 992px) {
+		.container {
+			max-width: 1366px;
+		}
+	}*/
+}

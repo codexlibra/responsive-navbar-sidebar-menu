@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="description" content="A responsive navbar sidebar menu made with HTML, CSS and JavaScript.">
+	<meta name="author" content="Codex Libra">
+	<title>Responsive Navbar Sidebar Menu</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container">
+			<i class='bx bx-menu toggler-icon'></i>
+			<a href="#" class="navbar-brand">Codex Libra</a>
+			<ul class="navbar-list">
+				<div class="sidebar-header">
+					<a href="#" class="sidebar-brand">Codex Libra</a>
+					<i class='bx bx-x toggler-icon'></i>
+				</div>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link active">
+						<i class='bx bxs-home navbar-icon'></i>
+						Home
+					</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">
+						<i class='bx bxs-info-circle navbar-icon'></i>
+						About
+					</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">
+						<i class='bx bxs-user navbar-icon'></i>
+						Contact
+					</a>
+				</li>
+				<li class="navbar-item-dropdown">
+					<span class="navbar-link-dropdown">
+						<div class="group-dropdown">
+							<i class='bx bxs-heart navbar-icon'></i>
+							Services
+						</div>
+						<i class='bx bx-chevron-down dropdown-menu-arrow'></i>
+					</span>
+					<!-- Start dropdown menu -->
+					<ul class="dropdown-menu">
+						<li class="navbar-item">
+							<a href="#" class="navbar-link">
+								<i class='bx bxs-bar-chart-alt-2 navbar-icon'></i>
+								Action
+							</a>
+						</li>
+						<li class="navbar-item">
+							<a href="#" class="navbar-link">
+								<i class='bx bxs-ghost navbar-icon'></i>
+								Another action
+							</a>
+						</li>
+						<li class="navbar-item-dropdown">
+							<span class="navbar-link-dropdown">
+								<div class="group-dropdown">
+									<i class='bx bxs-landscape navbar-icon'></i>
+									Something else here
+								</div>
+								<i class='bx bx-chevron-down dropdown-submenu-arrow'></i>
+							</span>
+							<!-- Start dropdown submenu -->
+							<ul class="dropdown-submenu">
+								<li class="navbar-item">
+									<a href="#" class="navbar-link">
+										<i class='bx bxs-wine navbar-icon'></i>
+										Action
+									</a>
+								</li>
+								<li class="navbar-item">
+									<a href="#" class="navbar-link">
+										<i class='bx bxs-pyramid navbar-icon'></i>
+										Another action
+									</a>
+								</li>
+								<li class="navbar-item">
+									<a href="#" class="navbar-link">
+										<i class='bx bxs-shield-alt-2 navbar-icon'></i>
+										Something else here
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">
+						<i class='bx bxs-comment navbar-icon'></i>
+						Feedback
+					</a>
+				</li>
+				<div class="overlay"></div>
+			</ul>
+		</div>
+	</nav>
+	
+	<script src="js/script.js"></script>
+</body>
+</html>
