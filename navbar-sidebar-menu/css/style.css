@@ -364,10 +364,11 @@ body {
 		text-decoration: none;
 		font-weight: bold;
 	}
-	.brand-icon {
+	.navbar-logo {
 		display: flex;
 		height: 63px;
 		width: auto;
+		padding-right: 1.40em;
 	}
 	.navbar-list {
 		list-style: none;
@@ -379,7 +380,7 @@ body {
 		display: block;
 		text-decoration: none;
 		color: var(--color-navbar-font);
-		padding: 1.45em;
+		padding: 1.40em;
 	}
 	.navbar-link.active {
 		background-color: var(--color-red);	
@@ -397,7 +398,7 @@ body {
 		display: flex;
 		align-items: center;
 		color: var(--color-navbar-font);
-		padding: 1.45em;
+		padding: 1.40em;
 	}
 	.dropdown-menu-arrow {
 		margin-left: 10px;
