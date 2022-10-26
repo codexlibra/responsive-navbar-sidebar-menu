@@ -1,5 +1,5 @@
 /*!
- * Responsive Navbar Sidebar Menu  v1.0.0
+ * Responsive Navbar Sidebar Menu  v1.0.1
  * Copyright 2022 Codex Libra
  * Licensed under MIT (https://github.com/codexlibra/responsive-navbar-sidebar-menu/blob/master/LICENSE)
  */
@@ -217,6 +217,7 @@ body {
 		top: 0px;
 		overflow: -moz-scrollbars-none;
 		box-shadow: var(--sidebar-box-shadow);
+		z-index: 2;
 	}
 
 	/* Show sidebar */
@@ -310,18 +311,14 @@ body {
 	.overlay {
 		position: fixed;
 		top: 0px;
-		left: calc(-100% + 260px);
 		height: 100vh;
-		width: 100%;
-		opacity: 0;
-		pointer-events: none;
-		transition: all 0.5s ease;
+		width: 100vw;
 		background-color: rgba(0,0,0,0.3);
+		visibility: hidden;
+		z-index: 1;
 	}
-	.navbar-list.toggle .overlay {
-		opacity: 1;
-		pointer-events: auto;
-		left: 260px;
+	.overlay.show {
+		visibility: visible;
 	}
 }
 
